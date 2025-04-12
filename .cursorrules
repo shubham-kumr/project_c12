@@ -1,0 +1,139 @@
+{
+    "version": "1.0",
+    "rules": {
+        "fileStructure": {
+            "enforce": true,
+            "patterns": [
+                {
+                    "path": "src/api/**/*.py",
+                    "description": "API source files must be in src/api directory"
+                },
+                {
+                    "path": "src/dashboard/**/*.py",
+                    "description": "Dashboard source files must be in src/dashboard directory"
+                },
+                {
+                    "path": "tests/**/*.py",
+                    "description": "Test files must be in tests directory"
+                }
+            ]
+        },
+        "naming": {
+            "enforce": true,
+            "patterns": [
+                {
+                    "pattern": "^[a-z][a-z0-9_]*$",
+                    "description": "Python module names should be lowercase with underscores"
+                },
+                {
+                    "pattern": "^[A-Z][a-zA-Z0-9]*$",
+                    "description": "Python class names should be PascalCase"
+                }
+            ]
+        },
+        "imports": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "from typing import",
+                    "description": "Type hints should be imported from typing"
+                },
+                {
+                    "pattern": "import pytest",
+                    "description": "Test files should import pytest"
+                }
+            ]
+        },
+        "documentation": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "def.*:",
+                    "description": "All functions should have docstrings"
+                },
+                {
+                    "pattern": "class.*:",
+                    "description": "All classes should have docstrings"
+                }
+            ]
+        },
+        "testing": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "test_.*\\.py$",
+                    "description": "Test files should start with 'test_'"
+                },
+                {
+                    "pattern": "def test_",
+                    "description": "Test functions should start with 'test_'"
+                }
+            ]
+        },
+        "security": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "API_KEY|SECRET|PASSWORD",
+                    "description": "No hardcoded secrets in code"
+                },
+                {
+                    "pattern": "eval\\(",
+                    "description": "No use of eval() function"
+                }
+            ]
+        },
+        "performance": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "time\\.sleep\\(",
+                    "description": "Avoid time.sleep() in production code"
+                },
+                {
+                    "pattern": "while True:",
+                    "description": "Infinite loops should have proper exit conditions"
+                }
+            ]
+        },
+        "environment": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "\\.env",
+                    "description": "Environment variables should be in .env file"
+                },
+                {
+                    "pattern": "requirements\\.txt",
+                    "description": "Dependencies should be in requirements.txt"
+                }
+            ]
+        },
+        "git": {
+            "enforce": true,
+            "rules": [
+                {
+                    "pattern": "\\.gitignore",
+                    "description": "Git ignore file should be present"
+                },
+                {
+                    "pattern": "README\\.md",
+                    "description": "README.md should be present"
+                }
+            ]
+        }
+    },
+    "settings": {
+        "python": {
+            "formatter": "black",
+            "linter": "flake8",
+            "typeChecker": "mypy"
+        },
+        "editor": {
+            "tabSize": 4,
+            "insertSpaces": true,
+            "trimTrailingWhitespace": true,
+            "insertFinalNewline": true
+        }
+    }
+} 
